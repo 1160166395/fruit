@@ -1,0 +1,114 @@
+.search-top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 1.35rem;
+    width: 100%;
+    background: #fff;
+    padding: .25rem .32rem;
+    box-sizing: border-box;
+    z-index: 102;
+}
+.search-inp{
+    position: relative;
+    height: .9rem;
+    width: 10.2rem;
+    background: #f4f4f4;
+    border-radius: 20px;
+    padding: 0 .7rem 0 1.05rem;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.search-inp .icon{
+    position: absolute;
+    left: .38rem;
+    top: 50%;
+    margin-top: -.215rem;
+    display: inline-block;
+    width: .43rem;
+    height: .43rem;
+    background: url(//img05.yiguoimg.com/d/web/170830/00913/153914/search.png);
+    background-size: 100% 100%;
+}
+.search-inp input{
+    width: 8rem;
+    height: 100%;
+    background: #f4f4f4;
+    border: none;
+    border-radius: 20px;
+    font-size: .4rem;
+    line-height: .4rem;
+    padding-top: .05rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.search-inp .close{
+    position: absolute;
+    right: .28rem;
+    top: 50%;
+    margin-top: -.2rem;
+    display: inline-block;
+    width: .40rem;
+    height: .40rem;
+    background: url(//img05.yiguoimg.com/d/web/170830/00913/153914//icon-close.png);
+    background-size: 100% 100%;
+}
+.search-top .txt{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: .32rem;
+    display: block;
+    height: 1.35rem;
+    width: 1.3rem;
+    text-align: center;
+    line-height: 1.35rem;
+    font-size: .46rem;
+    color: #11B57C;
+}
+.searchContent{
+    background: #fff;
+    padding-top: 1.35rem;
+}
+.searchContent .nav{
+    position: fixed;
+    left: 0;
+    top: 1.35rem;
+    float: left;
+    width: 2.77rem;
+    height: 100%;
+    overflow: hidden;
+    z-index: 98;
+}
+.searchContent .nav .navlist{
+    width: 3.27rem;
+    height: 100%;
+    background: #f4f4f4;
+    padding: 0rem .5rem 100px 0;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+.searchContent .nav .navItem{
+    padding: .64rem 0rem .64rem 0;
+    text-align: center;
+    font-size: .42rem;
+    color: #333;
+    height: 1.7rem;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+}
+.searchContent .nav .navItem.active{
+    color: #11B57C;
+    border-left: .1rem solid #11B57C;
+    background: #fff;
+    box-sizing: border-box;
+}
+.searchContent .listContent{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding-left: 2.77rem;
+    box-sizing: border-box;
+}

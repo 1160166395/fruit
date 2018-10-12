@@ -25,7 +25,7 @@ class Home extends Component{
 				},
 				{
 					id:2,
-					text:'品类',
+					text:'分类',
 					name:'category',
 					icon:'tasklist',
 					path:'/category'
