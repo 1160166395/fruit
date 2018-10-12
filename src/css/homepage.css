@@ -1,0 +1,163 @@
+.homepage{
+    height: 100%;display: flex;flex-direction: column;
+}
+.first-page{
+    background: #f4f4f4;
+}
+.top{
+    background: linear-gradient(90deg,#36db84,#0eb27b);
+    height: 1.24rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: .17rem .32rem .17rem 2.2rem;
+}
+.search{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: .9rem;
+    padding: 0 .4rem 0 1.06rem;
+    border-radius: .45rem;
+    background: hsla(0,0%,100%,.2);
+}
+.btn{
+    position: absolute;
+    top: .05rem;
+    left: .18rem;
+    width: .8rem;
+    height: .8rem;
+    background: url(//img05.yiguoimg.com/e/web/161222/01856/102912/search.png) no-repeat;
+    background-size: 100% 100%;
+}
+.am-carousel{
+    margin-top:1.07rem; 
+}
+.first-screen img{
+    display: block;
+    width: 100%;
+    height: 3.8rem;
+}
+.first-menu{
+    padding: .34rem .21rem .02rem;
+    background: #fff;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.first-menu .one{
+    float: left;
+    width: 25%;
+    padding: 0 0 .48rem;
+    text-align: center;
+    color: #333;
+}
+.first-menu .one img{
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.first-news{
+    box-sizing: border-box;
+    height: 1.1rem;
+    padding: .22rem .32rem .22rem 3.35rem;
+    background: #fff;
+    position: relative;
+}
+.first-news i{
+    position: absolute;
+    top: .35rem;
+    left: .5rem;
+    width: 2.26rem;
+    height: .44rem;
+    background: url(//img06.yiguoimg.com/e/web/161222/018522/134216/news.png) no-repeat;
+    background-size: 100% 100%;
+}
+.first-news .news-container{
+    height: 20px;
+
+    overflow: hidden;
+}
+.first-news .swiper-container{
+    animation:go 10s infinite;
+}
+@keyframes go{
+    0%{transform: translate3d(0px, 0px, 0px)}
+    24%{transform: translate3d(0px, 0px, 0px)}
+    25%{transform: translate3d(0px, -20px, 0px)}
+    49%{transform: translate3d(0px, -20px, 0px)}
+    50%{ transform: translate3d(0px, -40px, 0px)}
+    74%{ transform: translate3d(0px, -40px, 0px)}
+    75%{ transform: translate3d(0px, -60px, 0px)}
+    99%{ transform: translate3d(0px, -60px, 0px)}
+    100%{transform: translate3d(0px, 0px, 0px)}
+
+}
+.first-news p{
+    color: rgb(51,51, 51);
+    height:20px;
+    line-height: 20px;
+}
+.floor,.floor img{
+    width: 100%;
+}
+.floor .products{
+    overflow: hidden;
+    width: 100%;
+    height: 6.1rem;
+    background: #fff;
+}
+.floor .products .product{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    height: 7rem;
+    padding: .32rem 0 .58rem .32rem;
+    white-space: nowrap;
+}
+.floor  .product .proitem{
+    display: inline-block;
+}
+.floor .proitem img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+.floor .proitem .info{
+    box-sizing: border-box;
+    width: 3.5rem;
+    padding: .2rem .2rem 0;
+    text-align: center;
+}
+.floor .proitem .name{
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.floor .proitem .saletip{
+    height: .5rem;
+    padding: .22rem 0 0;
+}
+.floor .proitem .saletip span{
+    display: inline-block;
+    height: .46rem;
+    line-height: .5rem;
+    margin-right: .1rem;
+    padding: 0 .2rem;
+    color: #45b575;
+    border: 1px solid #45b575;
+    border-radius: 1em;
+}
+.floor .proitem .price{
+    color: #8d8a8a;
+    margin-top: .22rem;
+}
+.floor .proitem strong{
+    margin-right: .1rem;
+    font-size: .36rem;
+    font-weight: bold;
+    color: #fb3d3d;
+    font-size: .36rem;
+}

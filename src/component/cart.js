@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 
-class NotFound extends Component{
+class Cart extends Component{
 	render(){
 		return <div>
 			
-			NotFound
+			Cart
 		</div>
 	}
 }
 
-export default NotFound;
+export default Cart;

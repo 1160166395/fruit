@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 
-class NotFound extends Component{
+class Catrgory extends Component{
 	render(){
 		return <div>
 			
-			NotFound
+			Catrgory
 		</div>
 	}
 }
 
-export default NotFound;
+export default Catrgory;

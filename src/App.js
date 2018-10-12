@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import './App.css';
+import {Switch,Route} from 'react-router-dom';
+
 import Home from './component/Home';
 import Deitails from './component/Deitails';
 import NotFound from './component/NotFound';
-import {Switch,Route} from 'react-router-dom';
+
+import 'antd-mobile/dist/antd-mobile.css';
 class App extends Component {
   render() {
     return (
       <Switch>
-        <Route to='/home' component={Home}/>
-        <Route to='/deitails' component={Deitails}/>
+        <Route path='/deitails' component={Deitails}/>
+        <Route path='\/' component={Home} eaxct/>
         <Route component={NotFound}/>
       </Switch>
     );
