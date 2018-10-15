@@ -1,0 +1,189 @@
+.my .head{
+    position: relative;
+    width: 100%;
+    height: 5.96rem;
+    background: #2dd282 url(//img06.yiguoimg.com/d/web/180517/01262/143351/bgimg.jpg) 100% 100%;
+    background-size: 100% 100%;
+    padding: 0 0rem 1.2rem 0rem;
+    box-sizing: border-box;
+}
+.my .head .headimg{
+    position: relative;
+    display: inline-block;
+    height: 2.26rem;
+    margin-top: .9rem;
+    padding: 0 .32rem 0 2.85rem;
+    box-sizing: border-box;
+}
+.head .headimg .borderImg{
+    display: inline-block;
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    border: .13rem solid rgba(255,255,255,.5);
+    width: 2.26rem;
+    height: 2.26rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,.5);
+}
+.head .borderImg img{
+    position: absolute;
+    top: 0;
+    left: 0rem;
+    width: 2.26rem;
+    height: 2.26rem;
+    border-radius: 50%;
+}
+.head .headimg .name{
+    display: inline-block;
+    text-align: left;
+    color: #fff;
+    font-size: .52rem;
+    width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.7rem;
+    padding: .34rem 0 0 .8rem;
+    box-sizing: border-box;
+}
+.head .setting{
+    position: absolute;
+    top: .36rem;
+    right: .5rem;
+    display: inline-block;
+    width: .55rem;
+    height: .61rem;
+    background: url(//img07.yiguoimg.com/d/web/180508/01319/184003/setting.png) no-repeat;
+    background-size: 100% 100%;
+}
+.my .account{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.78rem;
+    background: rgba(255,255,255,.1);
+    padding: .3rem .3rem .3rem .3rem;
+    box-sizing: border-box;
+}
+.my .account .list{
+    float: left;
+    width: 33.33333%;
+    height: 100%;
+    text-align: center;
+    border-right: 1px dashed rgba(255,255,255,.5);
+    box-sizing: border-box;
+}
+.my .account .list span{
+    display: block;
+    color: #fff;
+}
+.my .account .list span.num{
+    font-size: .5rem;
+}
+.my .account .list span.txt{
+    font-size: .32rem;
+}
+.my .listTab{
+    position: relative;
+    width: 100%;
+    background: #fff;
+    height: 2.7rem;
+    margin-bottom: .3rem;
+}
+.listTab .line-bottom{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.listTab .line-bottom .fourLi{
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+.listTab .line-bottom .fourLi a{
+    display: inline-block;
+    font-size: .36rem;
+    color: #333;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 1.73rem;
+    box-sizing: border-box
+}
+.listTab .line-bottom .fourLi .icon{
+    width: .74rem;
+    height: auto;
+    margin-left: -.37rem;
+    position: absolute;
+    left: 50%;
+    top: .8rem;
+}
+.listTab .line-bottom .fourLi .goPade{
+    display: inline-block;
+    width: .15rem;
+    height: .24rem;
+    background: url(//img05.yiguoimg.com/d/web/180313/01318/155922/gopage2.png) no-repeat;
+    background-size: .15rem .24rem;
+    vertical-align: middle;
+    margin-left: .1rem;
+}
+.listTab .line-bottom .fourLi img{
+    width: 100%;
+    height: 100%;
+}
+.listTab .line-bottom .fourLi .pointRight{
+    position: absolute;
+    top: 0.05rem;
+    left: 0;
+    display: inline-block;
+    width: .16rem;
+    height: 100%;
+    background: url(//img07.yiguoimg.com/d/web/180313/01318/155922/xian.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 100;
+    right: -.2rem;
+    color: white;
+}
+.listTab .line-bottom .fourLi.borderLeft .icon{
+    width: .9rem;
+    height: .9rem;
+    background: url(//img07.yiguoimg.com/d/web/180315/01315/162344/allorder.png) no-repeat;
+    margin-left: -.45rem;
+    background-size: 100% 100%;
+}
+.my .testList{
+    position: relative;
+    width: 100%;
+    background: #fff;
+    margin-bottom: .3rem;
+}
+.testList .line{
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 2.7rem;
+}
+.testList .line a{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-top: 1.7rem;
+    text-align: center;
+    box-sizing: border-box;
+    color: #333;
+}
+.testList .line img.icon{
+    width: 1.08rem;
+    height: 1.08rem;
+    margin-left: -.504rem;
+    display: inline-block;
+    position: absolute;
+    top: .6rem;
+    left: 50%;
+    vertical-align: middle;
+    background-size: 100% 100%;
+}

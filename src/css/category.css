@@ -1,3 +1,6 @@
+.am-tab-bar-item{
+    background: #fff;
+}
 .search-top{
     position: fixed;
     top: 0;
@@ -111,4 +114,31 @@
     background: #fff;
     padding-left: 2.77rem;
     box-sizing: border-box;
+}
+.searchContent .listContent .commodityBox{
+    width: 100%;
+    padding: .5rem .6rem 50px .6rem;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.searchContent .listContent .commodityList{
+    float: left;
+    display: inline-block;
+    width: 2.76rem;
+    height: 3.18rem;
+    position: relative;
+    padding-top: 2rem;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: .38rem;
+    color: #808080;
+}
+.searchContent .listContent .commodityList img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.89rem;
+    height: 1.89rem;
+    margin: 0 .43rem;
 }

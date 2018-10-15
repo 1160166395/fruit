@@ -1,19 +1,21 @@
 import React,{Component} from 'react';
-import {NavLink,Route} from 'react-router-dom';
+import {NavLink,Route,Redirect} from 'react-router-dom';
 import http from '../server';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import { ActivityIndicator } from 'antd-mobile';
 
 import ListItem from './listitem';
+import {getList} from '../actions'
 
 import '../css/category.css';
-// import ListItem from 'antd-mobile/lib/list/ListItem';
 axios.defaults.headers.common['appName'] = 3000025;
-class Catrgory extends Component{
+class Category extends Component{
 	constructor(){
 		super()
 		this.state = {
 			data :'',
-			animating:false
+			animating:true,
 		}
 	}
 	componentWillMount(){
@@ -27,11 +29,18 @@ class Catrgory extends Component{
 			"version": "h5"}
 		}).then(res=>{
 			this.state.data = res.data;console.log(this.state.data.Data,this.props);
+			this.props.getList(res.data);
 			this.setState({ animating: !this.state.animating });
 		})
 	}
 	render(){
-		return this.state.animating
+		return <div>
+		<ActivityIndicator
+		text="Loading..."
+		animating={this.state.animating}
+		toast
+		/>{
+		!this.state.animating
 			?(<div className="category">
 			<div className="search-top">
 				<div className="search-inp">
@@ -45,24 +54,43 @@ class Catrgory extends Component{
 				<nav className="nav">
 					<div className="navlist">
 						{
-							this.state.data.Data.CategoryList.map(item=>{
-								return <NavLink to={this.props.match.url+"/"+item.CategoryCode} 
+							this.state.data.Data.CategoryList.map((item,idx)=>{
+								return <NavLink to={this.props.match.url+"/"+idx} 
 									key={item.CategoryId} 
 									activeClassName="active"
-									className="navItem">{item.CategoryName}</NavLink>
+									// className={['navItem', idx == 0 && 'active'].join(' ')}
+									className="navItem"
+									>{item.CategoryName}</NavLink>
 							})
 						}
 					</div>
 				</nav>
 				<div className="listContent">
 					 <Route path={this.props.match.path+"/:id"}
-					  data={this.state.data.Data.CategoryList} 
-					  component={ListItem}/>					
+					  component={ListItem}/>		
+					  <Redirect  to={this.props.match.path+"/0"} />			
 				</div>
 			</div>
 		</div>)
-		:'';
+		:''}
+		</div>
 	}
 }
 
-export default Catrgory;
+let mapStateToProps = function(state){
+	console.log(state,2,this.state)
+	// state为保存在store中的数据
+	return {
+		list:state.listReducer.data
+	}
+}
+let mapDispatchToProps = dispatch=>{
+	return {
+		getList(data){console.log(66,data)
+			dispatch(getList(data))
+		}
+	}
+}
+Category = connect(mapStateToProps,mapDispatchToProps)(Category);
+
+export default Category;

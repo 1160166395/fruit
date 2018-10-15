@@ -12,7 +12,7 @@ class Homepage extends Component{
 		super();
 		this.state = {
 			data:'',
-			animating: false,
+			animating: true,
 			imgHeight:200
 		}
 	}
@@ -30,14 +30,22 @@ class Homepage extends Component{
 			this.setState({ animating: !this.state.animating });
 		})
 	}
-
+	//点击跳转到对应search页
+	goSearch(item){
+		let {history} = this.props;
+		history.push({
+			pathname:"/searchlist",
+			search:item.hrefValue
+		})
+	}
 	render(){
 		return <div>
-		{/* <ActivityIndicator
+		<ActivityIndicator
 		text="Loading..."
-		toast={true}
-	  /> */}
-		{this.state.animating
+		animating={this.state.animating}
+		toast
+		/>
+		{!this.state.animating
 		?(<div className="homepage">
 	  		<div className="first-page">
 				<div className="top">
@@ -48,7 +56,7 @@ class Homepage extends Component{
 				<Carousel
 					autoplay={true}
 					infinite
-					>{console.log(1)}
+					>
 					{this.state.data.Data.templateComponentList[0].carouselPictures.map(val => (
 						<a 
 						key={val.framesIndex}
@@ -71,7 +79,7 @@ class Homepage extends Component{
 				</div>
 				<div className="first-menu">
 					{this.state.data.Data.templateComponentList[0].navComponentList.map(item=>{
-						return <a className="one" key={item.navIndex}>
+						return <a className="one" key={item.navIndex} onClick={this.goSearch.bind(this,item)}>
 							<img src={item.pictureUrl} />
 							<p>{item.navName}</p>
 						</a>
