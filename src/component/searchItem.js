@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {withRouter} from 'react-router-dom';
 
 class SearchItem extends Component{
 	constructor(){
@@ -7,11 +8,20 @@ class SearchItem extends Component{
 	componentWillMount(){
 		console.log(this.props)
 	}
+	//点击跳转到对应detail页
+	goDetail(item){
+		let {history} = this.props;
+		history.push({
+			pathname:"/deitails",
+			search:item.CommodityCode
+		})
+	}
 	render(){
 		return <div>
 			{
 				this.props.val.Data.CommodityList.map(item=>{
-					return <div className="productContent" key={item.CommodityCode}>
+					return <div className="productContent" key={item.CommodityCode} 
+					onClick={this.goDetail.bind(this,item)}>
 						<div className="img">
 							<img src={item.SmallPic}/>
 						</div>
@@ -32,4 +42,5 @@ class SearchItem extends Component{
 	}
 }
 
+SearchItem = withRouter(SearchItem);
 export default SearchItem;

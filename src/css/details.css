@@ -1,0 +1,259 @@
+i {
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 100% 100%;
+}
+.product .productInfor {
+    padding: .45rem 0 0.4rem .32rem;
+    background: #fff;
+    margin-bottom: .3rem;
+}
+.product .productInfor .title {
+    line-height: .8rem;
+    padding-right: .32rem;
+    font-size: .5rem;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.product .productInfor .subhead {
+    padding-right: .32rem;
+    font-size: .38rem;
+    color: #808080;
+    padding-top: .25rem;
+    line-height: .8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    height: 1.2rem;
+}
+.product .productInfor .subhead .label {
+    font-size: .36rem;
+    line-height: .36rem;
+    background: #fff;
+    display: inline-block;
+    padding: 0.13rem .2rem 0.11rem;
+    border: 1px solid #1fa44b;
+    border-radius: 0.12rem 0 0.12rem 0;
+    color: #1fa44b;
+    margin-right: .25rem;
+    font-style: normal;
+}
+.product .productInfor .price {
+    position: relative;
+    padding: 0rem 0 0rem;
+    overflow: hidden;
+}
+.product .productInfor .price .priceIn {
+    float: left;
+}
+.product .productInfor .price .priceIn .priceRed {
+    font-size: .66rem;
+    color: #ff6353;
+}
+.product .productInfor .price .area {
+    float: right;
+    font-size: .34rem;
+    color: #808080;
+    padding-right: .32rem;
+    padding-top: .32rem;
+}
+.product .productInfor .price .area .name {
+    color: #333;
+    line-height: .66rem;
+}
+.product .productInfor .sevenDay {
+    color: #ccc;
+    font-size: .34rem;
+}
+.product .productInfor .sevenDay .dian {
+    display: inline-block;
+    width: .12rem;
+    height: .12rem;
+    background: #ccc;
+    border-radius: 50%;
+    margin-right: .2rem;
+}
+.product .sale {
+    background: #fff;
+    margin-bottom: .3rem;
+}
+.product .sale h3 {
+    position: relative;
+    padding: .43rem .32rem;
+    box-sizing: border-box;
+    font-size: .42rem;
+    color: #808080;
+}
+.product .sale .saleIn {
+    padding-left: .32rem;
+}
+.product .sale .saleIn .saleList {
+    position: relative;
+    padding: .45rem .32rem .45rem 1.1rem;
+}
+.product .sale .saleIn .saleList .label {
+    position: absolute;
+    top: .45rem;
+    left: 0;
+    padding: .12rem .06rem .08rem;
+    background: #fd3d3d;
+    border-radius: 0.15rem 0 0.15rem 0;
+    font-size: .34rem;
+    line-height: .34rem;
+    color: #fff;
+    font-style: normal;
+}
+.product .sale .saleIn .saleList .title {
+    font-size: .38rem;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding-bottom: .2rem;
+    line-height: .5rem;
+}
+.product .sale .saleIn .saleList .list {
+    padding: .1rem 0;
+}
+.product .sale .saleIn .saleList .list .txt {
+    font-size: .34rem;
+    color: #333;
+}
+.product .norms {
+    background: #fff;
+    margin-bottom: 2rem;
+}
+.product .norms .title {
+    position: relative;
+    color: #808080;
+    font-size: .42rem;
+    line-height: 1.2rem;
+    padding: .35rem .32rem;
+}
+.product .norms .title .choose {
+    color: #808080;
+    font-size: .42rem;
+    padding: .15rem .2rem;
+    box-sizing: border-box;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    margin: 0 .05rem;
+}
+.product .norms .title .choose.active {
+    color: #11b57c;
+    font-size: .42rem;
+    padding: .15rem .2rem;
+    box-sizing: border-box;
+    border: 1px solid #11b57c;
+}
+.product .norms .title .num {
+    position: absolute;
+    left: 1.5rem;
+    top: .5rem;
+    width: 2.6rem;
+    height: .92rem;
+}
+.product .norms .title .num .cut, .product .norms .title .num .add {
+    float: left;
+    position: relative;
+    width: .75rem;
+    height: .92rem;
+}
+.product .norms .title .num .cut.active i {
+    background-image: url(//img07.yiguoimg.com/d/web/180226/01311/172807/cut1.png);
+}
+.product .norms .title .num .cut i {
+    position: absolute;
+    left: .21rem;
+    top: .28rem;
+    width: .33rem;
+    height: .33rem;
+    background: url(//img06.yiguoimg.com/d/web/180226/01311/172807/cut2.png) no-repeat;
+    background-size: 100%;
+}
+.product .norms .title .num .input {
+    float: left;
+    position: relative;
+    width: 1.04rem;
+    height: .93rem;
+    line-height: .93rem;
+    color: #333;
+    text-align: center;
+}
+.product .norms .title .num .add i {
+    position: absolute;
+    left: .21rem;
+    top: .28rem;
+    width: .33rem;
+    height: .33rem;
+    background: url(//img06.yiguoimg.com/d/web/180110/00911/141220/add2.png) no-repeat;
+    background-size: 100%;
+}
+.product .footer {
+    height: 1.6rem;
+    padding-left: .32rem;
+    padding-right: 0;
+}
+.footer {
+    position: fixed;
+    z-index: 201;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+}
+.footer a {
+    display: block;
+    float: left;
+}
+.product .footer .btn1 {
+    position: relative;
+    width: 15%;
+    height: 1.6rem;
+    text-align: center;
+    font-size: .34rem;
+    color: #8d8a8a;
+    padding-top: 1rem;
+}
+.product .footer .btn1 .home {
+    position: absolute;
+    top: .28rem;
+    left: 50%;
+    margin-left: -.345rem;
+    display: inline-block;
+    width: .69rem;
+    height: .61rem;
+    background: url(//img05.yiguoimg.com/d/web/170830/00913/153914/home.png) no-repeat;
+    background-size: 100% 100%;
+}
+.product .footer .btn1 .cart {
+    position: absolute;
+    top: .28rem;
+    left: 50%;
+    margin-left: -.35rem;
+    display: inline-block;
+    width: .7rem;
+    height: .7rem;
+    background: url(//img05.yiguoimg.com/d/web/170830/00911/152542/nav_list.png) no-repeat;
+    background-size: 100% 100%;
+}
+.product .footer .btn2 {
+    float: right;
+    background: #ff6353;
+    color: #fff;
+    width: 30%;
+    font-size: .5rem;
+    text-align: center;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+}
