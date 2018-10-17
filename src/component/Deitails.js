@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {NavLink,Route} from 'react-router-dom';
 import Home from './Home';
 import Cart from './cart';
-import { Carousel,ActivityIndicator } from 'antd-mobile';
+import { Carousel,ActivityIndicator,PullToRefresh } from 'antd-mobile';
 
 import http from '../server';
 import '../css/details.css';
@@ -41,6 +41,34 @@ class Deitails extends Component{
 		/>{
         !this.state.animating?
         (<div>
+        <PullToRefresh
+			damping={60}
+			ref={el => this.ptr = el}
+			style={{
+			height: this.state.height,
+			overflow: 'auto',
+			}}
+			indicator={this.state.down ? {} : { deactivate: '上拉可以刷新' }}
+			direction={this.state.down ? 'down' : 'up'}
+			refreshing={this.state.refreshing}
+			onRefresh={() => {
+			this.setState({ refreshing: true });
+				http.post('commodityapi/Commodity/GetCommodityDetail',{
+					body: {
+                        CommodityId:this.state.data.CommodityId
+					},
+					head: {
+                        DeviceId: "1f7210c3d06040f08b1613aa12197856",
+					    "loginToken": "",
+                        "token": "",
+                    }
+				}).then(res=>{
+                    this.setState({ html: res.data.Data });
+                    this.setState({ refreshing: false });
+                    this.setState({ show: true });
+				})
+			}}
+			>
             <Carousel
                 autoplay={true}
                 infinite
@@ -116,7 +144,20 @@ class Deitails extends Component{
                 </div>
             </div>
             <div className="address clearfix"></div>
-            <div className="details"></div>
+            {this.state.show?(<div className="details">
+            <table className="list" border="0" cellSpacing="0" cellPadding="0">
+            {
+                this.state.html.CommodityAttributes.map(item=>{
+                    return <tr>
+                        <th>{item.AttributeName}</th>
+                        <td>{item.AttributeValue}</td>
+                    </tr>
+                })
+            }
+            </table>
+            <div className="imgShow" dangerouslySetInnerHTML={{__html: this.state.html.CommodityRemark}}></div>
+            </div>):''}
+            </PullToRefresh>
             <footer className="footer">
                 <NavLink to="/homepage" className="btn1"><i className="home"></i>首页</NavLink>
                 <NavLink to="/cart" className="btn1"><i className="cart"></i>购物车
@@ -125,6 +166,7 @@ class Deitails extends Component{
             </footer>
             <Route path="/homepage" component={Home}/>
             <Route path="/cart" component={Cart}/>
+        
         </div>)
         :''}	
 		</div>

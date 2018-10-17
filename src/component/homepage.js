@@ -13,7 +13,11 @@ class Homepage extends Component{
 		this.state = {
 			data:'',
 			animating: true,
-			imgHeight:200
+			imgHeight:200,
+			pageIndex:'',
+			pageCnt:2,
+			publishTime:'',
+			homePageId:''
 		}
 	}
 	//挂载前拿数据
@@ -28,6 +32,9 @@ class Homepage extends Component{
 			"version": "h5"}
 		}).then(res=>{
 			this.state.data = res.data;console.log(this.state.data.Data);
+			this.state.publishTime = res.data.Data.commonInfo.publishTime;
+			this.state.homePageId = res.data.Data.commonInfo.homePageId;
+			this.state.pageIndex = ++res.data.Data.commonInfo.pageIndex;
 			this.setState({ animating: !this.state.animating });
 		})
 	}
@@ -60,25 +67,32 @@ class Homepage extends Component{
 			refreshing={this.state.refreshing}
 			onRefresh={() => {
 			this.setState({ refreshing: true });
-			http.post('/home/TemplateComponent/GetTemplateComponentInfo',{
-				body: {"previewTime": "",
-				"homePageId": "4d2a61b6-682e-4bd2-9c26-ae5ef71982a3",
-				"operationType": 1,
-				"pageIndex": 1,
-				"publishTime": "2018/10/17 11:48:43",
-				},
-				head: {"version": "h5", "cityCode": "128", 
-				"cityId": "361bc174-b1e5-4fb6-8f69-c391dcd92644",
-				"districtId": "e1040987-0230-4acf-9d75-8802e64033c7",
-				"loginToken": "",
-				"token": "",
-				"version": "h5"}
-			}).then(res=>{
-				console.log(res.data)
-			})
-			// setTimeout(() => {
-			// 	this.setState({ refreshing: false });
-			// }, 1000);
+			if(this.state.pageIndex<=2){
+				http.post('/home/TemplateComponent/GetTemplateComponentInfo',{
+					body: {"previewTime": "",
+					"homePageId": this.state.homePageId,
+					"operationType": 1,
+					"pageIndex": this.state.pageIndex,
+					"publishTime": this.state.publishTime,
+					},
+					head: {"version": "h5", "cityCode": "128", 
+					"cityId": "361bc174-b1e5-4fb6-8f69-c391dcd92644",
+					"districtId": "e1040987-0230-4acf-9d75-8802e64033c7",
+					"loginToken": "",
+					"token": "",
+					"version": "h5"}
+				}).then(res=>{
+					this.state.data.Data.templateComponentList.push(...res.data.Data.templateComponentList);
+					this.state.pageIndex = ++res.data.Data.commonInfo.pageIndex;
+					console.log(res.data)
+					this.setState({ refreshing: false });
+				})
+			}else{
+				this.setState({more:true})
+				setTimeout(() => {
+					this.setState({ refreshing: false });
+				}, 1000);
+			}
 			}}
 			>
 			<div className="homepage">
@@ -136,15 +150,22 @@ class Homepage extends Component{
 			</div>
 			{
 			this.state.data.Data.templateComponentList.slice(1).map((item,idx)=>{
-				return <div className="floor" key={idx}>
+				return item.componentBase.checkCodeName == 'floor'?(
+				<div className="floor" key={idx}>
 					<a href="#" className="floor-img">
 						<img src={item.adPictures[0].pictureUrl}/>
 					</a>
 					<div className="products clearfix">
 						<Product val={item}/>
 					</div>
-				</div>
+				</div>)
+				:''
 			})}
+			{
+				this.state.more?(
+					<div className="noMore"><p>没有更多了</p></div>
+				):''
+			}
 		</div></PullToRefresh>)	
 	:''}
 	</div>

@@ -76,7 +76,7 @@ class Home extends Component{
 						  <Route path='/category' component={Category}/>
 						  <Route path='/cart' component={Cart}/>
 						  <Route path='/mine' component={Mine}/>
-						  <Route path='\/' component={Homepage}/>
+						  <Route path='\/' component={Homepage} exact/>
 					  </Switch>
 					  </TabBar.Item>
 					})

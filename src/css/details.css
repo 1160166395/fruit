@@ -129,7 +129,7 @@ i {
 }
 .product .norms {
     background: #fff;
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
 }
 .product .norms .title {
     position: relative;
@@ -256,4 +256,40 @@ i {
     height: 1.6rem;
     line-height: 1.6rem;
     box-sizing: border-box;
+}
+.product .details{
+    margin-bottom:2rem; 
+}
+.product .details .list {
+    width: 100%;
+    border-collapse: collapse;
+}
+.product .details .list tr {
+    overflow: hidden;
+    background: #fff;
+    padding-left: .32rem;
+    box-sizing: border-box;
+    line-height: 1.2rem;
+    border-bottom: 1px solid #ddd;
+}
+.product .details .list tr th {
+    width: 30%;
+    font-size: .38rem;
+    color: gray;
+    line-height: .8rem;
+}
+.product .details .list tr td {
+    width: 70%;
+    font-size: .34rem;
+    color: #333;
+}
+.product .details .imgShow {
+    width: 100%;
+    padding: .32rem;
+    box-sizing: border-box;
+    background: #fff;
+}
+.product .details .imgShow img {
+    width: 100%;
+    display: block;
 }

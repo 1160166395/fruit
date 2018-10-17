@@ -128,3 +128,21 @@
     padding: 1rem 1.25rem 1.9rem;
     line-height: .6rem;
 }
+.searchList .noMore {
+    position: relative;
+    width: 3.5rem;
+    height: 1rem;
+    margin: 1.5rem auto 0.5rem;
+    border-top: 1px solid #808080;
+}
+.searchList .noMore p {
+    font-size: .38rem;
+    color: #808080;
+    position: absolute;
+    top: -.22rem;
+    left: 50%;
+    margin-left: -1.5rem;
+    background: #f4f4f4;
+    width: 3rem;
+    text-align: center;
+}

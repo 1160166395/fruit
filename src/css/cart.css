@@ -1,0 +1,180 @@
+.cart-wrap {
+    padding-bottom: 70px;
+}
+.cart-wrap .nogoods {
+    position: relative;
+    padding: 1.8rem 0 1.75rem;
+    background: #fff;
+    text-align: center;
+}
+.cart-wrap .nogoods .icon {
+    width: 100%;
+    height: 3.6rem;
+    background: url(//img07.yiguoimg.com/d/web/180313/013112/195558/img_nogoods@3x.png) no-repeat center;
+    background-size: auto 100%;
+}
+.cart-wrap .nogoods p {
+    padding: 1rem 0 .5rem;
+    font-size: .42rem;
+    color: #808080;
+}
+.cart-wrap .nogoods .btn {
+    height: 1.2rem;
+}
+.cart-wrap .nogoods .btn a {
+    position: relative;
+    display: inline-block;
+    width: 4.5rem;
+    height: 1.2rem;
+    border: 1px solid #11b57c;
+    border-radius: 6px;
+    line-height: 1.2rem;
+    font-size: .5rem;
+    color: #11b57c;
+}
+.cart-wrap .guess {
+    position: relative;
+    margin: 0 0 .3rem;
+    background: #fff;
+}
+.cart-wrap .guess .title {
+    position: relative;
+    height: 1.65rem;
+    line-height: 1.65rem;
+    font-size: .48rem;
+    color: #000;
+    text-align: center;
+}
+.cart-wrap .guess .title h2 {
+    position: relative;
+    display: inline-block;
+    padding: 0 .18rem;
+    font-size: .48rem;
+    font-weight: normal;
+    color: #333;
+}
+.cart-wrap .guess .list {
+    position: relative;
+    padding: .1rem .19rem .74rem;
+}
+.cart-wrap .guess .list .one {
+    float: left;
+    position: relative;
+    width: 50%;
+    padding: .16rem .53rem;
+    box-sizing: border-box;
+}
+.cart-wrap .guess .list .one .img {
+    width: 4.96rem;
+    height: 4.96rem;
+}
+.cart-wrap .guess .list .one .img img {
+    display: block;
+    width: 4.96rem;
+    height: 4.96rem;
+}
+.cart-wrap .guess .list .one .text h2 {
+    height: 1.12rem;
+    line-height: .56rem;
+    font-size: .42rem;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.cart-wrap .guess .list .one .text p {
+    height: .8rem;
+    line-height: .8rem;
+    font-size: 11px;
+    color: #808080;
+}
+.cart-wrap .red {
+    color: #fb3d3d;
+}
+.cart-wrap b {
+    font-weight: 500;
+}
+.cart-wrap .guess .list .one .text p b {
+    font-size: .42rem;
+    font-weight: 500;
+}
+.cart-wrap .guess .list .one .btn {
+    position: absolute;
+    right: .53rem;
+    bottom: .16rem;
+}
+.cart-wrap .guess .list .one .btn a {
+    display: block;
+    width: .8rem;
+    height: .8rem;
+    background: url(//img05.yiguoimg.com/d/web/180508/01311/150610/add.png) no-repeat;
+    background-size: 100%;
+}
+.cart-total {
+    position: fixed;
+    left: 0;
+    bottom: 50px;
+    width: 100%;
+    height: 1.6rem;
+    padding: 0 3.9rem 0 0;
+    box-sizing: border-box;
+    background: #fff;
+}
+.cart-total .check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.1rem;
+    height: .54rem;
+    padding: .53rem 0 .53rem .36rem;
+    font-size: .38rem;
+}
+.cart-total .check i.no {
+    background-image: url(//img07.yiguoimg.com/d/web/180119/01644/142027/check3.png);
+}
+.cart-total .check i {
+    display: inline-block;
+    width: .6rem;
+    height: .6rem;
+    margin: 0 .18rem 0 0;
+    background: url(//img06.yiguoimg.com/d/web/180119/01641/141347/check1.png) no-repeat;
+    background-size: 100%;
+    vertical-align: -4px;
+}
+.cart-total .check i.active {
+    background-image: url(//img06.yiguoimg.com/d/web/180508/01316/175209/check2.png);
+}
+.cart-total .text {
+    padding: .2rem 0;
+    line-height: .6rem;
+    font-size: 11px;
+    text-align: right;
+}
+.cart-total .text p b {
+    font-size: .46rem;
+}
+.cart-total .text span {
+    color: #999;
+}
+.cart-total .btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3.6rem;
+    height: 1.6rem;
+}
+.cart-total .btn a {
+    display: block;
+    width: 3.6rem;
+    height: 1.6rem;
+    background: #fb3d3d;
+    line-height: 1.6rem;
+    font-size: .5rem;
+    color: #fff;
+    text-align: center;
+}
+.cart-total .btn a.no {
+    background: #ccc;
+}
