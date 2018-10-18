@@ -1,0 +1,69 @@
+.Home{
+    position: relative;
+}
+.homebottom{
+    position: fixed;
+    height: 1.67rem;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+}
+.homebottom .bottomitem{
+    width: 25%;
+    text-align: center;
+    display: inline-block;
+    /* line-height: 1.67rem; */
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 100%;
+    color: #8d8a8a;
+    padding-top: 1.13rem;
+}
+.homebottom .bottomitem.active{
+    color: #11b57c;
+}
+.homebottom a .icon {
+    position: absolute;
+    top: 0.3rem;
+    left: 50%;
+    display: inline-block;
+    width: 1.07rem;
+    height: 0.8rem;
+    margin-left: -0.53rem;
+}
+.homebottom a.active i.icon1 {
+    background: url(//img05.yiguoimg.com/e/web/170110/00583/164146/nav_home_selected_active.png) 50% no-repeat;
+    background-size: 100% 100%;
+}
+.homebottom a i.icon1 {
+    background: url(//img05.yiguoimg.com/e/web/170110/00583/164146/nav_home_selected.png) 50% no-repeat;
+    background-size: 100% 100%;
+}
+.homebottom a.active i.icon2 {
+    background: url(//img07.yiguoimg.com/e/web/170110/00583/164146/nav_classify_active.png) 50% no-repeat;
+    background-size: 100% 100%;
+}
+.homebottom a i.icon2 {
+    background: url(//img07.yiguoimg.com/d/web/180508/01315/170504/nav_classify.png) 50% no-repeat;
+    background-size: 100% 100%;
+}
+.homebottom a.active i.icon3 {
+    background: url(//img07.yiguoimg.com/e/web/170110/00583/164146/nav_list_active.png) 50% no-repeat;
+    background-size: 100% 100%;
+}
+.homebottom a i.icon3 {
+    background: url(//img05.yiguoimg.com/e/web/170110/00583/164146/nav_list.png) 50% no-repeat;
+    background-size: 100% 100%;
+}
+.homebottom a.active i.icon4 {
+    background: url(//img05.yiguoimg.com/e/web/170110/00583/164146/nav_user_active.png) 50% no-repeat;
+    background-size: 100% 100%;
+}
+.homebottom a i.icon4 {
+    background: url(//img07.yiguoimg.com/e/web/170110/00583/164146/nav_user.png) 50% no-repeat;
+    background-size: 100% 100%;
+}

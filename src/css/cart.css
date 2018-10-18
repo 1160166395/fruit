@@ -1,5 +1,5 @@
 .cart-wrap {
-    padding-bottom: 70px;
+    margin-bottom: 1.7rem;
 }
 .cart-wrap .nogoods {
     position: relative;
@@ -87,7 +87,7 @@
 .cart-wrap .guess .list .one .text p {
     height: .8rem;
     line-height: .8rem;
-    font-size: 11px;
+    /* font-size: 11px; */
     color: #808080;
 }
 .cart-wrap .red {
@@ -115,7 +115,7 @@
 .cart-total {
     position: fixed;
     left: 0;
-    bottom: 50px;
+    bottom: 1.67rem;
     width: 100%;
     height: 1.6rem;
     padding: 0 3.9rem 0 0;
@@ -149,7 +149,7 @@
 .cart-total .text {
     padding: .2rem 0;
     line-height: .6rem;
-    font-size: 11px;
+    /* font-size: 11px; */
     text-align: right;
 }
 .cart-total .text p b {
@@ -177,4 +177,132 @@
 }
 .cart-total .btn a.no {
     background: #ccc;
+}
+.cart-wrap .goods {
+    padding: 0 0 0px;
+    color: #333;
+}
+.cart-wrap .goods .group {
+    position: relative;
+}
+.cart-wrap .goods .saleGroup {
+    position: relative;
+    margin-bottom: .3rem;
+    background: #fff;
+}
+.cart-wrap .goods .group .one {
+    position: relative;
+    padding: .32rem 0 .32rem 1.22rem;
+}
+.cart-wrap .goods .group .one .check {
+    position: absolute;
+    top: .32rem;
+    left: 0;
+    width: 1.22rem;
+    height: .54rem;
+    padding: 1.08rem 0;
+    text-align: center;
+}
+.cart-wrap .goods .group .one .check i.active {
+    background-image: url(//img06.yiguoimg.com/d/web/180508/01316/175209/check2.png);
+}
+.cart-wrap .goods .group .one .check i {
+    display: inline-block;
+    width: .6rem;
+    height: .6rem;
+    background: url(//img06.yiguoimg.com/d/web/180119/01641/141347/check1.png) no-repeat;
+    background-size: 100%;
+}
+.cart-wrap .goods .group .one .img {
+    position: absolute;
+    left: 1.22rem;
+    top: .32rem;
+    width: 2.7rem;
+    height: 2.7rem;
+}
+.cart-wrap .goods .group .one .img img {
+    display: block;
+    width: 2.7rem;
+    height: 2.7rem;
+}
+.cart-wrap .goods .group .one .text {
+    padding: 0 1.9rem 0 3rem;
+}
+.cart-wrap .goods .group .one .text h2 {
+    height: 1.12rem;
+    line-height: .56rem;
+    font-size: .42rem;
+    font-weight: normal;
+}
+.cart-wrap .goods .group .one .text .tag {
+    height: .56rem;
+    padding: .2rem 0 .1rem;
+}
+.cart-wrap .goods .group .one .text p {
+    height: .72rem;
+    line-height: .72rem;
+    font-size: .34rem;
+    color: #ccc;
+}
+.cart-wrap .goods .group .one .text p b {
+    font-size: .42rem;
+}
+.cart-wrap .goods .group .one .del {
+    position: absolute;
+    right: .5rem;
+    top: .42rem;
+    width: .48rem;
+    height: .5rem;
+}
+.cart-wrap .goods .group .one .del i {
+    display: block;
+    width: .48rem;
+    height: .5rem;
+    background: url(//img07.yiguoimg.com/d/web/180119/01642/141511/del.png) no-repeat;
+    background-size: 100%;
+}
+.cart-wrap .goods .group .one .num {
+    position: absolute;
+    right: .5rem;
+    top: 2.3rem;
+    width: 2.6rem;
+    height: .72rem;
+}
+.cart-wrap .goods .group .one .num .cut, .cart-wrap .goods .group .one .num .add {
+    float: left;
+    position: relative;
+    width: .72rem;
+    height: .72rem;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.cart-wrap .goods .group .one .num .cut i {
+    position: absolute;
+    left: .21rem;
+    top: .21rem;
+    width: .33rem;
+    height: .33rem;
+    background: url(//img06.yiguoimg.com/d/web/180226/01311/172807/cut2.png) no-repeat;
+    background-size: 100%;
+}
+.cart-wrap .goods .group .one .num .input {
+    float: left;
+    position: relative;
+    width: 1.16rem;
+    height: .72rem;
+    line-height: .72rem;
+    color: #333;
+    text-align: center;
+    border-top: 1px solid #ddd ;
+    border-bottom: 1px solid #ddd ;
+    box-sizing: border-box;
+}
+.cart-wrap .goods .group .one .num .add i {
+    position: absolute;
+    left: .21rem;
+    top: .21rem;
+    width: .33rem;
+    height: .33rem;
+    background: url(//img07.yiguoimg.com/d/web/180119/01642/141511/add2.png) no-repeat;
+    background-size: 100%;
 }

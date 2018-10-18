@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { TabBar } from 'antd-mobile';
-import {Route,Switch} from 'react-router-dom';
+import {Route,Switch,Redirect,NavLink} from 'react-router-dom';
 
 import Homepage from './homepage';
 import Category from './category';
@@ -9,6 +9,7 @@ import Mine from './mine';
 import http from '../server';
 import axios from 'axios';
 import octicons from 'octicons';
+import '../css/home.css'
 axios.defaults.headers.common['appName'] = 3000025;
 
 class Home extends Component{
@@ -20,28 +21,28 @@ class Home extends Component{
 					id:1,
 					text:'首页',
 					name:'homepage',
-					icon:'home',
-					path:'\/'
+					icon:'icon1',
+					path:'/homepage'
 				},
 				{
 					id:2,
 					text:'分类',
 					name:'category',
-					icon:'tasklist',
+					icon:'icon2',
 					path:'/category'
 				},
 				{
 					id:3,
 					text:'购物车',
 					name:'cart',
-					icon:'plus',
+					icon:'icon3',
 					path:'/cart'
 				},
 				{
 					id:4,
 					text:'我的',
 					name:'mine',
-					icon:'person',
+					icon:'icon4',
 					path:'/mine'
 				}
 			],
@@ -51,38 +52,22 @@ class Home extends Component{
 	render(){
 		
 		return <div className="Home" >
-			<TabBar>
+			<div className="homebottom">
 				{
-					this.state.tabs.map((item)=>{
-						return <TabBar.Item
-						title={item.text}
-						key={item.id}
-						icon={
-							<div dangerouslySetInnerHTML={{__html:octicons[item.icon].toSVG()}}/>
-						}
-						selectedIcon={
-							<div className="selected" dangerouslySetInnerHTML={{__html:octicons[item.icon].toSVG()}}/>
-						}
-						selected={this.state.selectedTab == item.name}
-						onPress={() => {
-						  this.setState({
-							selectedTab: item.name,
-						  });
-						  let {history} = this.props;
-						  history.push(item.path)
-						}}
-					  >
-					  <Switch>
-						  <Route path='/category' component={Category}/>
-						  <Route path='/cart' component={Cart}/>
-						  <Route path='/mine' component={Mine}/>
-						  <Route path='\/' component={Homepage} exact/>
-					  </Switch>
-					  </TabBar.Item>
+					this.state.tabs.map((item,idx)=>{
+					  return <NavLink className="bottomitem" key={idx} to={this.props.match.path+item.path} activeClassName="active">
+					  <i className={['icon',item.icon].join(' ')}></i>
+					  {item.text}</NavLink>
 					})
 				}
-			</TabBar>
-			
+			</div>
+			<Switch>
+			   	  <Route path={this.props.match.path+'/homepage'} component={Homepage}/>
+			 	  <Route path={this.props.match.path+'/category'} component={Category}/>
+			 	  <Route path={this.props.match.path+'/cart'} component={Cart}/>
+			 	  <Route path={this.props.match.path+'/mine'} component={Mine}/>
+			 	  <Redirect  to={this.props.match.path+'/homepage'} />	
+			   </Switch>
 		</div>	
 	}
 }

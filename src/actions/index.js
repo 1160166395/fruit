@@ -7,18 +7,18 @@ function addToCart(goods){
 }
 
 // 删除商品
-function removeGoods(proId){
+function removeGoods(CommodityCode){
 	return {
 		type:'CART_REMOVE',
-		payload:{proId}
+		payload:{CommodityCode}
 	}
 }
 
 // 修改商品数量
-function changeQty(proId,qty){
+function changeQty(CommodityCode,qty){
 	return {
 		type:'CART_CHANGE_QTY',
-		payload:{proId,qty}
+		payload:{CommodityCode,qty}
 	}
 }
 //获取列表信息

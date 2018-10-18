@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch,Route} from 'react-router-dom';
+import {Switch,Route,Redirect} from 'react-router-dom';
 
 import Home from './component/Home';
 import Deitails from './component/Deitails';
@@ -16,7 +16,8 @@ class App extends Component {
         <Route path='/deitails' component={Deitails}/>
         <Route path='/login' component={Login}/>
         <Route path='/searchlist' component={searchList}/>
-        <Route path='\/' component={Home} eaxct/>
+        <Route path='/home' component={Home}/>
+        <Redirect  to='/home' />
         <Route component={NotFound}/>
       </Switch>
     );

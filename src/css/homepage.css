@@ -1,5 +1,6 @@
 .homepage{
     height: 100%;display: flex;flex-direction: column;
+    margin-bottom: 1.67rem;
 }
 .homepage .first-page{
     background: #f4f4f4;
@@ -12,7 +13,7 @@
     top: 0;
     left: 0;
     z-index: 100;
-    padding: .17rem .32rem .17rem 2.2rem;
+    padding: .17rem .32rem 0 2.2rem;
 }
 .homepage .search{
     position: relative;
@@ -33,7 +34,7 @@
     background-size: 100% 100%;
 }
 .homepage .am-carousel{
-    margin-top:1.07rem; 
+    margin-top:1.24rem; 
 }
 .homepage .first-screen img{
     display: block;

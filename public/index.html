@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" id="vp"> -->
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" id="vp">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover"> -->
     <meta name="theme-color" content="#000000">
     <!--
       manifest.json provides metadata used when your web app is added to the
@@ -22,11 +22,11 @@
     -->
     <title>React App</title>
     <script type="text/javascript">
-      var wd = document.documentElement.clientWidth*window.devicePixelRatio/25;
+      var wd = document.documentElement.clientWidth*window.devicePixelRatio/12.5;
       document.getElementsByTagName("html")[0].style.fontSize = wd + "px";
-      // var scale = 1/window.devicePixelRatio;
-      // var mstr = 'initial-scale='+ scale +', maximum-scale='+ scale +', minimum-scale='+ scale +', user-scalable=no';
-      // document.getElementById("vp").content = mstr;
+      var scale = 1/window.devicePixelRatio;
+      var mstr = 'initial-scale='+ scale +', maximum-scale='+ scale +', minimum-scale='+ scale +', user-scalable=no';
+      document.getElementById("vp").content = mstr;
       </script>
   </head>
   <body>

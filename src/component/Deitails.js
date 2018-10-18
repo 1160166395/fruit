@@ -3,6 +3,7 @@ import {NavLink,Route} from 'react-router-dom';
 import Home from './Home';
 import Cart from './cart';
 import { Carousel,ActivityIndicator,PullToRefresh } from 'antd-mobile';
+import {connect} from 'react-redux';
 
 import http from '../server';
 import '../css/details.css';
@@ -15,9 +16,27 @@ class Deitails extends Component{
             animating:true,
             badge:false,
             num:1,
-            imgHeight:200
-		}
-	}
+            imgHeight:200,
+            total:1,
+            delactive:true,
+            update:true
+        }
+    }
+    //添加数量
+    add(){
+        if(this.state.total==1){
+            this.state.delactive=!this.state.delactive
+        }
+        this.setState({total:++this.state.total})
+    }
+    del(){
+        if(this.state.total==2){
+            this.state.delactive=!this.state.delactive
+        }
+        if(this.total>1){
+            this.setState({total:--this.state.total})
+        }
+    }
 	componentWillMount(){
 		http.post('/commodityapi/Commodity/GetCommodityInfo',{
 			body: {"CommodityCode": this.props.location.search.slice(1), "CommodityId": ""},
@@ -31,7 +50,27 @@ class Deitails extends Component{
 			this.state.data = res.data.Data.CommodityInfo;
 			this.setState({ animating: !this.state.animating });
 		})
-	}
+    }
+    handlerAddToCart(goods){
+    	// 获取购物车中的数据
+    	let {carlist} = this.props;
+    	
+    	goods.qty = this.state.total;
+        
+    	// 判断点击的当前商品是否存在购物车中
+    	let res = carlist.filter(item=>item.CommodityCode === goods.CommodityCode)[0];console.log(res,carlist)
+    	if(res){
+    		// 存在，则修改数量
+			let qty = res.qty+this.state.total;console.log(qty)
+            this.props.changeQty(goods.CommodityCode,qty);
+            this.setState({update:!this.state.update})
+    	}else{
+    		// 不存在，则添加商品
+
+    		this.props.addToCar(goods);
+    	}
+    	
+    }
 	render(){
 		return <div className="product">
         <ActivityIndicator
@@ -137,9 +176,10 @@ class Deitails extends Component{
                 <div className="title">
                     数量
                     <div className="num">
-                        <span className="cut active"><i></i></span>
-                        <span className="input">1</span>
-                        <span className="add"><i></i></span>
+                        <span className={['cut', this.state.delactive && 'active'].join(' ')}
+                        onClick={this.del.bind(this)}><i></i></span>
+                        <span className="input">{this.state.total}</span>
+                        <span className="add" onClick={this.add.bind(this)}><i></i></span>
                     </div>
                 </div>
             </div>
@@ -159,13 +199,13 @@ class Deitails extends Component{
             </div>):''}
             </PullToRefresh>
             <footer className="footer">
-                <NavLink to="/homepage" className="btn1"><i className="home"></i>首页</NavLink>
-                <NavLink to="/cart" className="btn1"><i className="cart"></i>购物车
+                <NavLink to="/home/homepage" className="btn1"><i className="home"></i>首页</NavLink>
+                <NavLink to="/home/cart" className="btn1"><i className="cart"></i>购物车
                 {this.state.badge?<i className="num">{this.state.num}</i>:''}</NavLink>
-                <a className="btn2">加入购物车</a>
+                <a className="btn2" onClick={this.handlerAddToCart.bind(this,this.state.data)}>加入购物车</a>
             </footer>
-            <Route path="/homepage" component={Home}/>
-            <Route path="/cart" component={Cart}/>
+            <Route path="/home/homepage" component={Home}/>
+            <Route path="/home/cart" component={Cart}/>
         
         </div>)
         :''}	
@@ -173,4 +213,29 @@ class Deitails extends Component{
 	}
 }
 
+let mapStateToProps = function(state){
+	// state为保存在store中的数据
+	return {
+		carlist:state.cartReducer.data
+	}
+}
+
+let mapDispatchToProps = function(dispatch){
+	return {
+		addToCar:(goods)=>{
+			dispatch({
+				type:'CART_ADD',
+				payload:goods
+			})
+		},
+		changeQty:(CommodityCode,qty)=>{
+			dispatch({
+				type:'CART_CHANGE_QTY',
+				payload:{CommodityCode,qty}
+			})
+		}
+	}
+}
+// 连接组件并指定暴露的数据
+Deitails = connect(mapStateToProps,mapDispatchToProps)(Deitails);
 export default Deitails;
