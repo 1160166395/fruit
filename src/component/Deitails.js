@@ -66,7 +66,8 @@ class Deitails extends Component{
             this.setState({update:!this.state.update})
     	}else{
     		// 不存在，则添加商品
-
+            goods.checked = true;
+			// goods.checkedbox = true;
     		this.props.addToCar(goods);
     	}
     	
@@ -186,14 +187,16 @@ class Deitails extends Component{
             <div className="address clearfix"></div>
             {this.state.show?(<div className="details">
             <table className="list" border="0" cellSpacing="0" cellPadding="0">
+            <tbody>
             {
-                this.state.html.CommodityAttributes.map(item=>{
-                    return <tr>
+                this.state.html.CommodityAttributes.map((item,idx)=>{
+                    return <tr key="idx">
                         <th>{item.AttributeName}</th>
                         <td>{item.AttributeValue}</td>
                     </tr>
                 })
             }
+            </tbody>
             </table>
             <div className="imgShow" dangerouslySetInnerHTML={{__html: this.state.html.CommodityRemark}}></div>
             </div>):''}
@@ -201,7 +204,7 @@ class Deitails extends Component{
             <footer className="footer">
                 <NavLink to="/home/homepage" className="btn1"><i className="home"></i>首页</NavLink>
                 <NavLink to="/home/cart" className="btn1"><i className="cart"></i>购物车
-                {this.state.badge?<i className="num">{this.state.num}</i>:''}</NavLink>
+                {this.props.carlist.length!=0?<i className="num">{this.props.carlist.length}</i>:''}</NavLink>
                 <a className="btn2" onClick={this.handlerAddToCart.bind(this,this.state.data)}>加入购物车</a>
             </footer>
             <Route path="/home/homepage" component={Home}/>

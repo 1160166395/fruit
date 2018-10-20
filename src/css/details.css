@@ -246,6 +246,20 @@ i {
     background: url(//img05.yiguoimg.com/d/web/170830/00911/152542/nav_list.png) no-repeat;
     background-size: 100% 100%;
 }
+.product .footer .btn1 .num{
+    position: absolute;
+    right: 0.12rem;
+    top: 0.12rem;
+    height: 0.53rem;
+    line-height: 0.53rem;
+    padding: 0 0.13rem;
+    border-radius: 0.27rem;
+    font-size: 0.4rem;
+    font-weight: 700;
+    font-family: Arial;
+    background: #fb3d3d;
+    color: #fff;
+}
 .product .footer .btn2 {
     float: right;
     background: #ff6353;

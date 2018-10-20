@@ -28,7 +28,7 @@ class SearchItem extends Component{
 						<div className="inforPro">
 							<p className="tittle">{item.CommodityName}</p>
 							<p className="txt">{item.SubTitle}</p>
-							<i className="label">{item.PromotionTag}</i>
+							{item.PromotionTag?<i className="label">{item.PromotionTag}</i>:''}
 							<p className="price">
 								<span className="priceRed">{item.OriginalPrice}</span>
 								<span className="standard">{item.Spec}</span>

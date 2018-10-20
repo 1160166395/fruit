@@ -10,13 +10,16 @@ class Cart extends Component{
 		this.state={
 			data:'',
 			animating:true,
-			show:false
+			show:false,
+			update:true,
+			selectAll:false
 		
 		}
 	}
 	componentDidMount(){console.log(this.props.carlist)
 		if(this.props.carlist != ''){
-			this.setState({show:true})
+			this.setState({show:true,selectAll:true});
+			this.allprice();
 		}
 		http.post('/commodityapi/Commodity/GetGuessRecommentCommodity',{
 			body: {GuessRecommendType: 1},
@@ -31,11 +34,60 @@ class Cart extends Component{
 			this.setState({ animating: !this.state.animating });
 		})
 	}
+	//计算价格
+	allprice(){
+		let num = 0;
+		this.props.carlist.forEach(item => {
+			if(item.checked){
+				num++;
+			}
+		});
+		let sum = 0;
+		this.props.carlist.forEach(item => {
+			if(item.checked){
+				sum += item.qty*item.SellPrice;
+			}
+		});
+		this.setState({sum:sum,num:num});console.log(2,this.props.carlist)
+	}
+	//判断全选反选
+	selected(){
+		let res = this.props.carlist.every(item=>{
+			return item.checked === true;
+		})
+		if(res){
+			this.state.selectAll = true;
+		}else{
+			this.state.selectAll = false;
+		}
+	}
+	//全选反选
+	selectAlls(){
+		if(!this.state.selectAll){
+			this.props.carlist.forEach(item=>{
+				item.checked = true;
+			});
+		}else{
+			this.props.carlist.forEach(item=>{
+				item.checked = false;
+			});
+		}
+		this.setState({selectAll:!this.state.selectAll});
+		this.allprice();
+	}
+	//选中
+	selectgood(item){
+		item.checked = !item.checked;
+		this.selected.bind(this)();
+		this.allprice();
+		this.setState({update:!this.state.update})
+	}
 	//加数量
 	handlerAddToCart(goods){
 
 		let qty = goods.qty+1;
 		this.props.changeQty(goods.CommodityCode,qty);
+		this.allprice();
     	
 	}
 	//减数量
@@ -43,6 +95,7 @@ class Cart extends Component{
 		if(goods.qty>1){
 			let qty = goods.qty-1;
 			this.props.changeQty(goods.CommodityCode,qty);
+			this.allprice();
 		}
     	
 	}
@@ -52,15 +105,51 @@ class Cart extends Component{
 			this.setState({show:false})
 		}
 		this.props.removeGoods(goods.CommodityCode);
+		this.allprice();
 	}
 	//点击跳转到对应detail页
 	goDetail(item){
 		let {history} = this.props;
+		// history.push({
+		// 	pathname:"/deitails",
+		// 	search:item.CommodityCode
+		// })
+	}
+	//点击跳转到对应home页
+	goHome(item){
+		let {history} = this.props;
 		history.push({
-			pathname:"/deitails",
-			search:item.CommodityCode
+			pathname:"/home/homepage"
 		})
 	}
+	handlerAddToCarts(goods,event){
+		if (event.cancelable) {
+			// 判断默认行为是否已经被禁用
+			if (!event.defaultPrevented) {
+				event.preventDefault();
+			}
+		}
+		// e.preventDefault();
+    	// 获取购物车中的数据
+    	let {carlist} = this.props;       
+    	// 判断点击的当前商品是否存在购物车中
+    	let res = carlist.filter(item=>item.CommodityCode === goods.CommodityCode)[0];
+    	if(res){
+    		// 存在，则修改数量
+			let qty = res.qty+1;
+            this.props.changeQty(goods.CommodityCode,qty);this.allprice();
+            // this.setState({update:!this.state.update})
+    	}else{
+    		// 不存在，则添加商品
+			goods.qty = 1;
+			goods.checked = true;
+			this.props.addToCar(goods);
+
+		}
+		this.selected();
+		this.setState({show:true});
+		this.allprice();
+    }
 	render(){
 		return <div className="cart-wrap">
 		{
@@ -70,7 +159,8 @@ class Cart extends Component{
 					<div className="group ">
 						<div className="saleGroup">
 							<div className="one ">
-								<div className="check"><i className="active"></i></div> 
+								<div className="check"><i className={item.checked?"active":''}
+								onTouchStart={this.selectgood.bind(this,item)}></i></div> 
 								<div className="img"><img src={item.SmallPic}/></div> 
 								<div className="text">
 								<h2 className="elli2">{item.CommodityName}</h2> 
@@ -90,8 +180,8 @@ class Cart extends Component{
 			})
 			:<div className="nogoods">
 				<div className="icon"></div>
-				<p>购物车空空的，快去逛逛吧！</p>
-				<div className="btn"><a>去逛逛</a></div>
+				<p >购物车空空的，快去逛逛吧！</p>
+				<div className="btn"><a onTouchStart={this.goHome.bind(this)}>去逛逛</a></div>
 			</div>
 		}
 			
@@ -101,7 +191,7 @@ class Cart extends Component{
 				{
 					!this.state.animating?(
 						this.state.data.CommodityList.map((item,idx)=>{
-							return <div className="one" key={idx}  onClick={this.goDetail.bind(this,item)}>
+							return <div className="one" key={idx}  onTouchStart={this.goDetail.bind(this,item)}>
 							<div className="img">
 								<img src={item.SmallPic}/>
 							</div> 
@@ -109,7 +199,7 @@ class Cart extends Component{
 								<h2 className="elli2">{item.CommodityName}</h2> 
 								<p><strong className="red">￥<b>{item.SellPrice}</b></strong></p>
 							</div>
-							<div className="btn"><a></a></div>
+							<div className="btn" onTouchStart={this.handlerAddToCarts.bind(this,item)}><a></a></div>
 						</div>
 						})
 					):''
@@ -117,12 +207,13 @@ class Cart extends Component{
 				</div>
 			</div>
 			<div className="cart-total">
-				<div className="check"><i className="no"></i>全选</div> 
+				<div className="check"><i className={this.state.selectAll?'active':''}
+				onTouchStart={this.selectAlls.bind(this)}></i>全选</div> 
 				<div className="text">
-					<p>合计(不含运费)：<b className="red">￥0.00</b></p> 
+					<p>合计(不含运费)：<b className="red">￥{this.state.sum?this.state.sum:'0.00'}</b></p> 
 					<span>已优惠: ￥0.00</span>
 				</div> 
-				<div className="btn"><a className="no">去结算(0)</a></div>
+				<div className="btn"><a className={this.state.num?'':'no'}>去结算({this.state.num?this.state.num:0})</a></div>
 			</div>
 		</div>
 	}
@@ -146,6 +237,12 @@ let mapDispatchToProps = dispatch=>{
 			dispatch({
 				type:'CART_CHANGE_QTY',
 				payload:{CommodityCode,qty}
+			})
+		},
+		addToCar:(goods)=>{
+			dispatch({
+				type:'CART_ADD',
+				payload:goods
 			})
 		}
 	}

@@ -67,3 +67,17 @@
     background: url(//img07.yiguoimg.com/e/web/170110/00583/164146/nav_user.png) 50% no-repeat;
     background-size: 100% 100%;
 }
+.homebottom b {
+    position: absolute;
+    right: 0rem;
+    top: -0.17rem;
+    height: 0.53rem;
+    line-height: 0.53rem;
+    padding: 0 0.13rem;
+    border-radius: 0.27rem;
+    font-size: 0.4rem;
+    font-weight: 700;
+    font-family: Arial;
+    background: #fb3d3d;
+    color: #fff;
+}

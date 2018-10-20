@@ -1,12 +1,11 @@
 import React,{Component} from 'react';
-import { TabBar } from 'antd-mobile';
 import {Route,Switch,Redirect,NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import Homepage from './homepage';
 import Category from './category';
 import Cart from './cart';
 import Mine from './mine';
-import http from '../server';
 import axios from 'axios';
 import octicons from 'octicons';
 import '../css/home.css'
@@ -46,7 +45,7 @@ class Home extends Component{
 					path:'/mine'
 				}
 			],
-			selectedTab:'homepage',
+			num:''
 		}
 	}
 	render(){
@@ -56,7 +55,8 @@ class Home extends Component{
 				{
 					this.state.tabs.map((item,idx)=>{
 					  return <NavLink className="bottomitem" key={idx} to={this.props.match.path+item.path} activeClassName="active">
-					  <i className={['icon',item.icon].join(' ')}></i>
+					  <i className={['icon',item.icon].join(' ')}>
+					  {(idx===2&&this.props.carlist.length!=0)?<b>{this.props.carlist.length}</b>:''}</i>
 					  {item.text}</NavLink>
 					})
 				}
@@ -71,4 +71,13 @@ class Home extends Component{
 		</div>	
 	}
 }
+
+let mapStateToProps = function(state){
+	// state为保存在store中的数据
+	return {
+		carlist:state.cartReducer.data
+	}
+}
+// 连接组件并指定暴露的数据
+Home = connect(mapStateToProps)(Home);
 export default Home;
